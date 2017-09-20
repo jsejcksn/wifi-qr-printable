@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="description" content="Print a QR code with your wifi information" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- BEGIN Open Graph Protocol object -->
+  	<meta property="og:title" content="Printable wifi QR code" />
+  	<meta property="og:type" content="website" />
+  	<meta property="og:url" content="https://jsejcksn.github.io/wifi-qr-printable/" />
+  	<meta property="og:image" content="https://jsejcksn.github.io/wifi-qr-printable/images/ogp.png" />
+  	<meta property="og:description" content="Print a QR code with your wifi information" />
+  <!-- END Open Graph Protocol object -->
+
+  <title>Printable wifi QR code</title>
+
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" href="icon.png" />
+  <script defer src="js/wifi-qr-gen.js"></script>
+</head>
+
+<body>
+  <div class="container">
+    <img id="qr" src="https://zxing.org/w/chart?cht=qr&chs=350x350&chld=L&choe=UTF-8&chl=WIFI%3AS%3Ainvalid_network%3BT%3AWPA%3BP%3Anopassword%3B%3B" />
+    <div>
+      <input id="ssid" class="ssid" type="text" placeholder="ssid" inputmode="verbatim" autocapitalize="none" spellcheck="false" autofocus />
+      <input id="pass" class="pass" type="text" placeholder="password" inputmode="verbatim" autocapitalize="none" autocomplete="off" autocorrect="off" spellcheck="false" />
+      <input id="hidden" class="hidden noprint" type="checkbox" /> <label for="hidden" class="label noprint">Hidden?</label>
+      <button id="update" class="update noprint">Update QR Code and Print</button>
+    </div>
+  </div>
+</body>
+</html>
