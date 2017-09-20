@@ -1,2 +1,4 @@
 # wifi-qr-printable
-Generates a printable QR code for your wifi network
+Print a QR code with your wifi information
+
+Uses the [ZXing generator](https://zxing.appspot.com/generator) API.
