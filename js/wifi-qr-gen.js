@@ -24,7 +24,7 @@
 
   function updatePrint () {
     updateInfo();
-    setTimeout(() => window.print(), 750); // Should be async, but there is no async API. Hopefully 750ms is enough.
+    setTimeout(() => window.print(), 750); // Should be part of a promise for the loaded image, but, for now, hopefully it'll succeed within 750ms
   }
 
   function updateInfo () {
