@@ -2,8 +2,10 @@
 <html lang="en">
 
 <head>
+  <!-- Global Site Tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-61163669-13"></script><script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments)};gtag('js', new Date());gtag('config', 'UA-61163669-13');</script>
+
   <meta charset="utf-8" />
-  <meta name="description" content="Print a QR code with your wifi information" />
+  <meta name="description" content="Print a QR code card with your wifi information" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <!-- BEGIN Open Graph Protocol object -->
@@ -11,7 +13,7 @@
   	<meta property="og:type" content="website" />
   	<meta property="og:url" content="https://jsejcksn.github.io/wifi-qr-printable/" />
   	<meta property="og:image" content="https://jsejcksn.github.io/wifi-qr-printable/images/ogp.png" />
-  	<meta property="og:description" content="Print a QR code with your wifi information" />
+  	<meta property="og:description" content="Print a QR code card with your wifi information" />
   <!-- END Open Graph Protocol object -->
 
   <title>Printable wifi QR code</title>
@@ -24,13 +26,37 @@
 
 <body>
   <div class="container">
-    <img id="qr" src="https://zxing.org/w/chart?cht=qr&chs=350x350&chld=L&choe=UTF-8&chl=WIFI%3AS%3Ainvalid_network%3BT%3AWPA%3BP%3Anopassword%3B%3B" />
-    <div>
-      <input id="ssid" class="ssid" type="text" placeholder="ssid" inputmode="verbatim" autocapitalize="none" spellcheck="false" autofocus />
-      <input id="pass" class="pass" type="text" placeholder="password" inputmode="verbatim" autocapitalize="none" autocomplete="off" autocorrect="off" spellcheck="false" />
-      <input id="hidden" class="hidden noprint" type="checkbox" /> <label for="hidden" class="label noprint">Is the network hidden?</label>
-      <button id="update" class="update noprint">Update QR Code and Print</button>
+    <header class="no-print">
+      <h1>Printable wifi QR&nbsp;code</h1>
+      <p class="subtitle">Share your wifi with others by printing and posting a QR&nbsp;code card.</p>
+      <p class="intro">Instead of having to verbally share your network name and password, the new wifi user can simply join the network by scanning the QR&nbsp;code... no one will have to say or type anything. Print—cut—post!</p>
+    </header>
+
+    <div id="preview">
+      <h2 class="no-print">Preview of card:</h2>
+
+      <img id="scissors" class="no-screen" src="images/scissors-cutting.svg" />
+      <div id="card">
+        <img id="qr" src="https://zxing.org/w/chart?cht=qr&chs=350x350&chld=L&choe=UTF-8&chl=WIFI%3AS%3AmyNetwork%3BT%3AWPA%3BP%3AnotMyPetsName123%3B%3B" />
+
+        <img id="wifi-symbol" src="images/wifi-symbol.svg" title="wifi symbol" alt="wifi symbol" />
+
+        <p id="ssid">myNetwork</p>
+        <p id="pass">notMyPetsName123</p>
+      </div>
     </div>
+
+    <form class="no-print">
+      <label for="ssid-input" class="label label-text">Network name</label>
+      <input id="ssid-input" class="input input-text" type="text" placeholder="myNetwork" inputmode="verbatim" autocapitalize="none" spellcheck="false" />
+
+      <label for="pass-input" class="label label-text">Password</label>
+      <input id="pass-input" class="input input-text" type="text" placeholder="notMyPetsName123" inputmode="verbatim" autocapitalize="none" autocomplete="off" autocorrect="off" spellcheck="false" />
+
+      <input id="hidden-input" class="input input-checkbox" type="checkbox" /> <label for="hidden-input" class="label label-checkbox">Is the network hidden?</label>
+
+      <button id="update" class="input input-action" type="button">Print card</button>
+    </form>
   </div>
 </body>
 </html>

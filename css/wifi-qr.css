@@ -453,6 +453,14 @@ template {
   --nunito: 'Nunito', sans-serif;
   --open-sans: 'Open Sans', sans-serif;
   --source-code-pro: 'Source Code Pro', monospace;
+  --card-pass-font-size: 0.1in;
+  --card-ssid-font-size: calc(var(--card-pass-font-size) * 1.25);
+  --qr-width: 350px;
+  --qr-width-padded: calc(var(--qr-width) + 2px);
+  --qr-margin: calc(var(--qr-width) / 7);
+  --qr-print-width: 2in;
+  --qr-print-width-padded: calc(var(--qr-print-width) + 2px);
+  --qr-print-margin: calc(var(--qr-print-width) / 7);
 }
 
 * {
@@ -473,68 +481,189 @@ body {
   font-size: 1.6rem;
 }
 
-img {
+form {
   display: block;
+  margin: 5rem auto;
 }
 
-input {
-  border: 0;
-  display: block;
-  margin-left: calc(350px / 7 * 1);
-  width: calc(350px / 7 * 5);
+h1,
+h2 {
+  font-family: var(--nunito);
+}
+
+h1 {
+  font-size: 3.8rem;
+  margin: 3rem auto 0;
+  text-align: center;
+}
+
+h2 {
+  font-size: 2.4rem;
+  margin: 2rem auto;
+}
+
+header {
+  margin: 0 auto;
 }
 
 .container {
   margin: 0 auto;
-  width: 350px;
-}
-
-.ssid {
-  font-family: var(--open-sans);
-  font-weight: 600;
-}
-
-.pass {
-  font-family: var(--source-code-pro);
-}
-
-.hidden {
-  display: inline-block;
-  margin-top: 1em;
-  width: auto;
-}
-
-.update {
-  background-color: #06f;
-  border-radius: 2px;
-  color: #fff;
-  display: block;
-  margin-left: calc(350px / 7 * 1);
-  margin-top: 2em;
+  max-width: calc(600px + 2rem);
   padding: 1rem;
 }
 
+.input {
+  display: block;
+}
+
+.input-action {
+  background-color: #06f;
+  border-radius: 4px;
+  color: #fff;
+  font-size: 3rem;
+  margin-top: 4rem;
+  padding: 1.5rem;
+  width: 100%;
+}
+
+.input-checkbox {
+  display: inline-block;
+  margin-top: 4rem;
+  transform: scale(2);
+  transform-origin: left;
+}
+
+.input-text {
+  border: 2px solid #ddd;
+  border-radius: 4px;
+  font-family: var(--open-sans);
+  font-size: 3rem;
+  margin-top: 1rem;
+  padding: 1rem;
+  width: 100%;
+}
+
+.input-text::placeholder {
+  color: #ccc;
+}
+
+.intro {
+  line-height: 1.4em;
+  margin: 2rem auto;
+}
+
+.label-checkbox {
+  margin-left: 1.6rem;
+}
+
+.label-text {
+  display: block;
+  margin-top: 2rem;
+}
+
+.no-screen {
+  display: none;
+}
+
+.subtitle {
+  font-size: 2rem;
+  line-height: 1.4em;
+  margin: 2rem auto;
+}
+
+#card {
+  border: 1px solid #888;
+  border-radius: 20px;
+  padding-bottom: var(--qr-margin);
+  text-align: center;
+  width: var(--qr-width-padded);
+}
+
+#pass {
+  font-family: var(--source-code-pro);
+  margin: 1rem auto 0;
+  width: calc(var(--qr-margin) * 5);
+}
+
+#pass-input {
+  font-family: var(--source-code-pro);
+}
+
+#preview {
+  margin: 5rem auto 0;
+  text-align: center;
+  width: var(--qr-width-padded);
+}
+
+#qr {
+  border-radius: 24px;
+  display: block;
+  width: var(--qr-width);
+}
+
+#ssid {
+  font-size: 2rem;
+  font-weight: 600;
+  margin: 0 auto;
+  width: calc(var(--qr-margin) * 5);
+}
+
+#wifi-symbol {
+  margin-bottom: var(--qr-margin);
+  width: calc(var(--qr-margin) * 2);
+}
+
 @media print {
-  .noprint {
+  .no-print {
     display: none;
   }
 
-  input {
-    font-size: 1.2rem;
-    margin-left: calc(2in / 7 * 1);
-    width: calc(2in / 7 * 5);
+  .container {
+    margin: 0;
+    max-width: 100%;
+    padding: 0;
   }
 
-  .container {
-    border: 1px dotted rgba(0, 0, 0, 0.5);
-    border-radius: 8px;
-    margin: 0 auto;
-    padding-bottom: calc(2in / 7 * 1);
-    width: calc(2in + 2px);
+  #card {
+    border: 1px dashed #888;
+    border-radius: 0.1in;
+    padding-bottom: var(--qr-print-margin);
+    width: var(--qr-print-width-padded);
+  }
+
+  #card p {
+    width: calc(var(--qr-print-margin) * 5);
+  }
+
+  #pass {
+    font-size: var(--card-pass-font-size);
+    margin: 0.625em auto 0;
+    width: calc(var(--qr-print-margin) * 5);
+  }
+
+  #preview {
+    margin: 0;
+    text-align: inherit;
+    width: 100%;
   }
 
   #qr {
-    border-radius: 12px;
-    width: 2in;
+    border-radius: 0.12in;
+    width: var(--qr-print-width);
+  }
+
+  #scissors {
+    display: block;
+    width: var(--qr-print-margin);
+  }
+
+  #ssid {
+    font-size: var(--card-ssid-font-size);
+    width: calc(var(--qr-print-margin) * 5);
+  }
+
+  #wifi-symbol {
+    margin-bottom: var(--qr-print-margin);
+    width: calc(var(--qr-print-margin) * 2);
   }
 }
