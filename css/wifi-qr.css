@@ -453,6 +453,8 @@ template {
   --nunito: 'Nunito', sans-serif;
   --open-sans: 'Open Sans', sans-serif;
   --source-code-pro: 'Source Code Pro', monospace;
+  --color-blue: #06f;
+  --padding: 1rem;
   --card-pass-font-size: 0.1in;
   --card-ssid-font-size: calc(var(--card-pass-font-size) * 1.25);
   --qr-width: 350px;
@@ -481,9 +483,22 @@ body {
   font-size: 1.6rem;
 }
 
+a:link,
+a:visited,
+a:hover,
+a:active {
+  color: var(--color-blue);
+  text-decoration: none;
+}
+
+a:hover,
+a:active {
+  color: #000;
+}
+
 form {
   display: block;
-  margin: 5rem auto;
+  margin-top: 5rem;
 }
 
 h1,
@@ -502,14 +517,24 @@ h2 {
   margin: 2rem auto;
 }
 
-header {
-  margin: 0 auto;
-}
-
 .container {
   margin: 0 auto;
-  max-width: calc(600px + 2rem);
-  padding: 1rem;
+  max-width: calc(600px + (var(--padding) * 2));
+  padding: var(--padding) var(--padding) 5rem;
+}
+
+.credit {
+  font-size: 1.4rem;
+  margin-top: 3rem;
+}
+
+.credit p {
+  margin-top: 1rem;
+}
+
+.img-link {
+  height: 1.2rem;
+  text-decoration: none;
 }
 
 .input {
@@ -517,7 +542,7 @@ header {
 }
 
 .input-action {
-  background-color: #06f;
+  background-color: var(--color-blue);
   border-radius: 4px;
   color: #fff;
   font-size: 3rem;
