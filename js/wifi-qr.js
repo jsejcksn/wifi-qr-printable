@@ -28,12 +28,19 @@
   function tOnly (bool) {
     return bool ? true : '';
   }
+  
+  const escapeHtml = s => s
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
 
   function updateInfo () {
     wifi.ssid = form.ssid.value;
-    preview.ssid.innerHTML = wifi.ssid;
+    preview.ssid.innerHTML = escapeHtml(wifi.ssid);
     wifi.pass = form.pass.value;
-    preview.pass.innerHTML = wifi.pass;
+    preview.pass.innerHTML = escapeHtml(wifi.pass);
     wifi.hidden = form.hidden.checked;
   }
 
